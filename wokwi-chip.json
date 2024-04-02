@@ -4,9 +4,10 @@
   "author": "Uri Shaked",
   "license": "MIT",
   "pins": [
-    "OUT",
-    "IN",
     "VCC",
-    "GND"
+    "GND",
+    "INT",
+    "SCL",
+    "SDA"
   ]
 }
