@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "name": "Inverter",
-  "author": "Uri Shaked",
+  "name": "GT911 - touch screen controller",
+  "author": "Juraj Michálek",
   "license": "MIT",
   "pins": [
     "VCC",

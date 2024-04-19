@@ -1,8 +1,8 @@
 [wokwi]
 version = 1
-#gdbServerPort = 3333
-elf = "uf2.bin"
-firmware = "uf2.bin"
+gdbServerPort = 3333
+elf = "demo/esp32-p4-all-apps.bin"
+firmware = "demo/esp32-p4-all-apps.bin"
 
 [[chip]]
 name = 'inverter'  # To use the chip in diagram.json, add a part with "chip-inverter" type.

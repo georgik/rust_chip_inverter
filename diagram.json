@@ -8,7 +8,7 @@
       "id": "esp",
       "top": 184.37,
       "left": -217.64,
-      "attrs": { "psramSize": "8", "flashSize": "2" }
+      "attrs": { "psramSize": "8", "flashSize": "16" }
     },
     { "type": "board-ili9881c-8in", "id": "lcd1", "top": -76.8, "left": -67.2, "attrs": {} },
     { "type": "chip-inverter", "id": "chip1", "top": 202.62, "left": 62.4, "attrs": {} }
