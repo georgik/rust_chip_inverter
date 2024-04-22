@@ -65,7 +65,7 @@ pub unsafe extern "C" fn i2c_disconnect(user_data: *const c_void, address: u8) {
 
 #[no_mangle]
 pub unsafe extern "C" fn chipInit() {
-    debugPrint(CString::new("Hello Rust!").unwrap().into_raw());
+    debugPrint(CString::new("Initializing GT911").unwrap().into_raw());
 
     // Configuration for GT911 I2C touch controller
     let mut chip = Chip {
@@ -76,7 +76,7 @@ pub unsafe extern "C" fn chipInit() {
         sda: pinInit(CString::new("SDA").unwrap().into_raw(), OUTPUT),
         scl: pinInit(CString::new("SCL").unwrap().into_raw(), OUTPUT),
         user_data: &mut chip as *mut Chip as *mut c_void,
-        address: 0x5d,
+        address: 0x0,
         connect: i2c_connect as *const c_void, // Cast the function pointer to *const c_void
         read: i2c_read as *const c_void, // Cast the function pointer to *const c_void
         write: i2c_write as *const c_void,
