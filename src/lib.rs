@@ -106,20 +106,17 @@ pub unsafe extern "C" fn i2c_disconnect(user_data: *const c_void, address: u8) {
 
 #[no_mangle]
 pub unsafe extern "C" fn chipInit() {
-    debugPrint(CString::new("Initializing GT911").unwrap().into_raw());
+    debugPrint(CString::new("Initializing TT21100").unwrap().into_raw());
 
-
-    
-    // Configuration for GT911 I2C touch controller
+    // Configuration for TT21100 I2C touch controller
     let mut chip = Chip {
         pin_in: pinInit(CString::new("IN").unwrap().into_raw(), INPUT),
         pin_out: pinInit(CString::new("OUT").unwrap().into_raw(), OUTPUT),
         chip_state: ChipState::Init,
-        init_data: [0; 3],
+        init_data: [0x00, 0x01, 0x02], // Example initialization data, change as needed
         touch_data: [0; 8],
         current_byte: 0,
     };
-
 
     // Calculate middle screen coordinates (assuming 800x1280 resolution)
     let x: i32 = 800 / 2;
@@ -143,14 +140,12 @@ pub unsafe extern "C" fn chipInit() {
         sda: pinInit(CString::new("SDA").unwrap().into_raw(), OUTPUT),
         scl: pinInit(CString::new("SCL").unwrap().into_raw(), OUTPUT),
         user_data: (CHIP_VEC.len() - 1) as *const c_void,
-        address: 0x5D,
+        address: 0x15, // TT21100 I2C address, change as needed
         connect: i2c_connect as *const c_void, // Cast the function pointer to *const c_void
         read: i2c_read as *const c_void, // Cast the function pointer to *const c_void
         write: i2c_write as *const c_void,
         disconnect: i2c_disconnect as *const c_void,
     };
-    
 
     i2cInit(&config);
-  
 }
